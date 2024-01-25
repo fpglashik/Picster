@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A7D5B942B6033CA0037C252 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D5B932B6033CA0037C252 /* CHTCollectionViewWaterfallLayout */; };
+		1A7D5B962B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D5B952B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC */; };
+		1A7EE3092B5AAE3400CCACC3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */; };
+		1A7EE30C2B5AAEEF00CCACC3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE30A2B5AAEEF00CCACC3 /* ProfileViewController.swift */; };
+		1A7EE30D2B5AAEEF00CCACC3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE30B2B5AAEEF00CCACC3 /* HomeViewController.swift */; };
+		1A7EE30F2B5AB1D600CCACC3 /* UserPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE30E2B5AB1D600CCACC3 /* UserPreferenceViewController.swift */; };
+		1A7EE3112B5AB23A00CCACC3 /* UserPreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */; };
 		1ADEE3EB2B559B83009B9E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */; };
 		1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */; };
-		1ADEE3EF2B559B83009B9E6A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EE2B559B83009B9E6A /* ContainerViewController.swift */; };
 		1ADEE3F42B559B86009B9E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADEE3F32B559B86009B9E6A /* Assets.xcassets */; };
 		1ADEE3F72B559B86009B9E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADEE3F52B559B86009B9E6A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1A7EE30A2B5AAEEF00CCACC3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1A7EE30B2B5AAEEF00CCACC3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1A7EE30E2B5AB1D600CCACC3 /* UserPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceViewController.swift; sourceTree = "<group>"; };
+		1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceManager.swift; sourceTree = "<group>"; };
 		1ADEE3E72B559B83009B9E6A /* Picster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1ADEE3EE2B559B83009B9E6A /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1ADEE3F32B559B86009B9E6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ADEE3F62B559B86009B9E6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ADEE3F82B559B86009B9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7D5B962B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */,
+				1A7D5B942B6033CA0037C252 /* CHTCollectionViewWaterfallLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,9 +66,13 @@
 		1ADEE3E92B559B83009B9E6A /* Picster */ = {
 			isa = PBXGroup;
 			children = (
+				1A7EE30B2B5AAEEF00CCACC3 /* HomeViewController.swift */,
+				1A7EE30A2B5AAEEF00CCACC3 /* ProfileViewController.swift */,
+				1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */,
 				1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */,
 				1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */,
-				1ADEE3EE2B559B83009B9E6A /* ContainerViewController.swift */,
+				1A7EE30E2B5AB1D600CCACC3 /* UserPreferenceViewController.swift */,
+				1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */,
 				1ADEE3F32B559B86009B9E6A /* Assets.xcassets */,
 				1ADEE3F52B559B86009B9E6A /* LaunchScreen.storyboard */,
 				1ADEE3F82B559B86009B9E6A /* Info.plist */,
@@ -80,6 +96,10 @@
 			dependencies = (
 			);
 			name = Picster;
+			packageProductDependencies = (
+				1A7D5B932B6033CA0037C252 /* CHTCollectionViewWaterfallLayout */,
+				1A7D5B952B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC */,
+			);
 			productName = Picster;
 			productReference = 1ADEE3E72B559B83009B9E6A /* Picster.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 1ADEE3DE2B559B83009B9E6A;
+			packageReferences = (
+				1A7D5B922B6033CA0037C252 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
+			);
 			productRefGroup = 1ADEE3E82B559B83009B9E6A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,9 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ADEE3EF2B559B83009B9E6A /* ContainerViewController.swift in Sources */,
+				1A7EE3092B5AAE3400CCACC3 /* TabBarViewController.swift in Sources */,
+				1A7EE30C2B5AAEEF00CCACC3 /* ProfileViewController.swift in Sources */,
+				1A7EE30F2B5AB1D600CCACC3 /* UserPreferenceViewController.swift in Sources */,
 				1ADEE3EB2B559B83009B9E6A /* AppDelegate.swift in Sources */,
 				1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */,
+				1A7EE30D2B5AAEEF00CCACC3 /* HomeViewController.swift in Sources */,
+				1A7EE3112B5AB23A00CCACC3 /* UserPreferenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +378,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A7D5B922B6033CA0037C252 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A7D5B932B6033CA0037C252 /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A7D5B922B6033CA0037C252 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
+		};
+		1A7D5B952B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A7D5B922B6033CA0037C252 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayoutObjC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1ADEE3DF2B559B83009B9E6A /* Project object */;
 }
