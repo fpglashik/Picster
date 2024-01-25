@@ -64,4 +64,27 @@ struct FlickrApiCaller{
         
     }
     
+    private var dummyUrls = ["https://live.staticflickr.com/65535/53486166710_c4265267a7_m.jpg", "https://live.staticflickr.com/65535/53486060704_73156bacd2_m.jpg", "https://live.staticflickr.com/65535/53486047994_0e26032c20_m.jpg", "https://live.staticflickr.com/65535/53485744796_b01ed347c5_m.jpg", "https://live.staticflickr.com/65535/53484713492_3d5c8a5ef5_m.jpg", "https://live.staticflickr.com/65535/53484711022_7630094d4e_m.jpg", "https://live.staticflickr.com/65535/53485607611_d168f74ce1_m.jpg", "https://live.staticflickr.com/65535/53486020010_e006873686_m.jpg", "https://live.staticflickr.com/65535/53485912174_42ea0ceb45_m.jpg", "https://live.staticflickr.com/65535/53485608066_e2fed28348_m.jpg", "https://live.staticflickr.com/65535/53485745793_b995929153_m.jpg", "https://live.staticflickr.com/65535/53486019640_8c46740919_m.jpg", "https://live.staticflickr.com/65535/53485873914_5ed941a371_m.jpg", "https://live.staticflickr.com/65535/53485704323_8b7d768435_m.jpg", "https://live.staticflickr.com/65535/53485948610_a802c2988b_m.jpg", "https://live.staticflickr.com/65535/53485641923_f6810f245e_m.jpg", "https://live.staticflickr.com/65535/53485491256_d8967e99b5_m.jpg", "https://live.staticflickr.com/65535/53485659173_9eab5dfd4a_m.jpg", "https://live.staticflickr.com/65535/53485919770_248b7ffff8_m.jpg", "https://live.staticflickr.com/65535/53485929595_9da4755371_m.jpg"]
+    
+    func getDummyFeed(for page: Int, completion: @escaping ((Result<[FlickrFeedItem], FlickrError>) -> Void)) async {
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5){
+            let items = dummyUrls.map{
+                FlickrFeedItem(
+                    title: "Dummy Item Title",
+                    url: "",
+                    description: "Dummy Item Description", 
+                    dateTaken: "",
+                    media: FlickrFeedItemMedia(urlString: $0),
+                    datePublished: "",
+                    author: "",
+                    authorId: "",
+                    tags: "")
+            }
+            
+            completion(.success(items.shuffled()))
+        }
+        
+    }
+    
 }

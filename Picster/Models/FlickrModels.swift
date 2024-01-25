@@ -41,9 +41,9 @@ struct FlickrFeedItem: Decodable{
 }
 
 struct FlickrFeedItemMedia: Decodable{
-    var mediaUrl: String            //"https://live.staticflickr.com/65535/53466611837_aed8ab0d12_m.jpg"
+    var urlString: String           //"https://live.staticflickr.com/65535/53466611837_aed8ab0d12_m.jpg"
     
     private enum CodingKeys: String, CodingKey {
-        case mediaUrl       = "m"
+        case urlString      = "m"
     }
 }
