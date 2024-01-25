@@ -16,7 +16,7 @@
 		1A7EE3112B5AB23A00CCACC3 /* UserPreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */; };
 		1AD79D312B61FC54001A9B9A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D302B61FC54001A9B9A /* NetworkManager.swift */; };
 		1AD79D352B61FFC2001A9B9A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D342B61FFC2001A9B9A /* Constants.swift */; };
-		1AD79D372B620011001A9B9A /* FlickrApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D362B620011001A9B9A /* FlickrApiCaller.swift */; };
+		1AD79D372B620011001A9B9A /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D362B620011001A9B9A /* FlickrApi.swift */; };
 		1AD79D392B620576001A9B9A /* DataCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D382B620576001A9B9A /* DataCoder.swift */; };
 		1AD79D3B2B620F3A001A9B9A /* FlickrModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D3A2B620F3A001A9B9A /* FlickrModels.swift */; };
 		1AD79D3E2B62165F001A9B9A /* FlickrItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */; };
@@ -24,6 +24,7 @@
 		1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */; };
 		1ADEE3F42B559B86009B9E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADEE3F32B559B86009B9E6A /* Assets.xcassets */; };
 		1ADEE3F72B559B86009B9E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADEE3F52B559B86009B9E6A /* LaunchScreen.storyboard */; };
+		1AEA36F72B62BFFF00FB2774 /* FlickrMediaItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA36F62B62BFFF00FB2774 /* FlickrMediaItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,7 @@
 		1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceManager.swift; sourceTree = "<group>"; };
 		1AD79D302B61FC54001A9B9A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1AD79D342B61FFC2001A9B9A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1AD79D362B620011001A9B9A /* FlickrApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrApiCaller.swift; sourceTree = "<group>"; };
+		1AD79D362B620011001A9B9A /* FlickrApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		1AD79D382B620576001A9B9A /* DataCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoder.swift; sourceTree = "<group>"; };
 		1AD79D3A2B620F3A001A9B9A /* FlickrModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrModels.swift; sourceTree = "<group>"; };
 		1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrItemCollectionCell.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		1ADEE3F32B559B86009B9E6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ADEE3F62B559B86009B9E6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ADEE3F82B559B86009B9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AEA36F62B62BFFF00FB2774 /* FlickrMediaItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrMediaItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,7 @@
 				1A7EE3102B5AB23A00CCACC3 /* UserPreferenceManager.swift */,
 				1AD79D302B61FC54001A9B9A /* NetworkManager.swift */,
 				1AD79D342B61FFC2001A9B9A /* Constants.swift */,
-				1AD79D362B620011001A9B9A /* FlickrApiCaller.swift */,
+				1AD79D362B620011001A9B9A /* FlickrApi.swift */,
 				1AD79D382B620576001A9B9A /* DataCoder.swift */,
 			);
 			path = Others;
@@ -107,6 +109,7 @@
 		1ADEE3E92B559B83009B9E6A /* Picster */ = {
 			isa = PBXGroup;
 			children = (
+				1AEA36F52B62BFF100FB2774 /* ViewModels */,
 				1AD79D3C2B6212BB001A9B9A /* Models */,
 				1AD79D2F2B61FC39001A9B9A /* Others */,
 				1AD79D2E2B61FBE5001A9B9A /* Home */,
@@ -120,6 +123,14 @@
 				1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */,
 			);
 			path = Picster;
+			sourceTree = "<group>";
+		};
+		1AEA36F52B62BFF100FB2774 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1AEA36F62B62BFFF00FB2774 /* FlickrMediaItemViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,10 +215,11 @@
 				1AD79D392B620576001A9B9A /* DataCoder.swift in Sources */,
 				1AD79D3B2B620F3A001A9B9A /* FlickrModels.swift in Sources */,
 				1A7EE30C2B5AAEEF00CCACC3 /* ProfileViewController.swift in Sources */,
+				1AEA36F72B62BFFF00FB2774 /* FlickrMediaItemViewModel.swift in Sources */,
 				1A7EE30F2B5AB1D600CCACC3 /* UserPreferenceViewController.swift in Sources */,
 				1ADEE3EB2B559B83009B9E6A /* AppDelegate.swift in Sources */,
 				1AD79D352B61FFC2001A9B9A /* Constants.swift in Sources */,
-				1AD79D372B620011001A9B9A /* FlickrApiCaller.swift in Sources */,
+				1AD79D372B620011001A9B9A /* FlickrApi.swift in Sources */,
 				1AD79D312B61FC54001A9B9A /* NetworkManager.swift in Sources */,
 				1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */,
 				1A7EE30D2B5AAEEF00CCACC3 /* HomeViewController.swift in Sources */,

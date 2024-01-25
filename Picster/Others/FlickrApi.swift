@@ -1,5 +1,5 @@
 //
-//  FlickrApiCaller.swift
+//  FlickrApi.swift
 //  Picster
 //
 //  Created by mac 2019 on 1/25/24.
@@ -22,8 +22,9 @@ enum FlickrError: Error, LocalizedError{
     }
 }
 
-struct FlickrApiCaller{
-    static var shared = FlickrApiCaller()
+struct FlickrApi{
+    static var shared = FlickrApi()
+    static let perPageItemCount = 20
     private init(){}
     
     private var feedTagComponent: String{
@@ -35,7 +36,7 @@ struct FlickrApiCaller{
         return page <= 0 ? "" : "&page=\(page)"
     }
     
-    private func feedPerPageComponent(perPage: Int = 20) -> String{
+    private func feedPerPageComponent(perPage: Int = FlickrApi.perPageItemCount) -> String{
         let count = max(5, min(30, perPage))
         return "&per_page=\(count)"
     }
@@ -52,7 +53,14 @@ struct FlickrApiCaller{
         switch networkResult{
             case .success(let data):
                 if let feed = DataCoders.decode(data: data, FlickrFeed.self){
-                    print(feed.title)
+                    /*feed.items.forEach{
+                        print("title:\($0.title)")
+                        print("url:\($0.url)")
+                        print("murl:\($0.media.urlString)")
+                        print("desc:\($0.description)")
+                        print("\n")
+                        print("\n")
+                    }*/
                     completion(.success(feed.items))
                 }
                 else{
@@ -73,18 +81,57 @@ struct FlickrApiCaller{
                 FlickrFeedItem(
                     title: "Dummy Item Title",
                     url: "",
-                    description: "Dummy Item Description", 
+                    description: "Dummy Item Description width=200 height=200",
                     dateTaken: "",
                     media: FlickrFeedItemMedia(urlString: $0),
                     datePublished: "",
                     author: "",
                     authorId: "",
-                    tags: "")
+                    tags: ""
+                )
             }
             
             completion(.success(items.shuffled()))
         }
         
+    }
+    
+    
+    static func extractWidthHeight(text: String)->(Int, Int){
+        
+        let dimensions = text
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "\"", with: "")
+            .split(separator: " ")
+            .filter{
+                $0.contains("width=") || $0.contains("height=")
+            }
+            .map{ $0.split(separator: "=") }
+            .reduce(into: [String:Int]()) {
+                if $1.count >= 1{
+                    $0[String($1[0])] = Int($1[1]) ?? 0
+                }
+            }
+        return (dimensions["width"] ?? 0, dimensions["height"] ?? 0)
+    }
+    
+    
+    static func generateWidthHeight(text: String)->(Int, Int){
+        
+        let dimensions = text
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "\"", with: "")
+            .split(separator: " ")
+            .filter{
+                $0.contains("width=") || $0.contains("height=")
+            }
+            .map{ $0.split(separator: "=") }
+            .reduce(into: [String:Int]()) {
+                if $1.count >= 1{
+                    $0[String($1[0])] = Int($1[1]) ?? 0
+                }
+            }
+        return (dimensions["width"] ?? 0, dimensions["height"] ?? 0)
     }
     
 }
