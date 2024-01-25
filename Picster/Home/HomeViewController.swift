@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import CHTCollectionViewWaterfallLayout
 
 class HomeViewController: UIViewController{
     static var title = "Home"
     
     private var collectionView: UICollectionView!
     
-    private var data: [FlickrFeedItem] = []
+    private var data: [FlickrMediaItemViewModel] = []
+    private var isDataLoadingEnabled = false
+    private var isDataLoading = false
+    private var isNextPageAvailable = false
+    private var nextPageNumber = 1
+    private var scrollOffsetBeforeLoading = CGPoint(x: 0, y: 0)
     
     
     override func viewDidLoad() {
@@ -30,6 +36,7 @@ class HomeViewController: UIViewController{
     
     private func configure(){
         if UserPreferenceManager.isTopicPreferenceExist(){
+            isDataLoadingEnabled = true
             loadContents()
         }
         else{
@@ -47,7 +54,12 @@ class HomeViewController: UIViewController{
         layout.scrollDirection = .vertical
         layout.itemSize = .init(width: view.bounds.width / 3 - 10, height: 200)
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let waterfallLayout = CHTCollectionViewWaterfallLayout()
+        waterfallLayout.columnCount = 3
+        waterfallLayout.itemRenderDirection = .leftToRight
+        
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(FlickrItemCollectionCell.self, forCellWithReuseIdentifier: FlickrItemCollectionCell.reuseIdentifier)
         
@@ -60,19 +72,32 @@ class HomeViewController: UIViewController{
     }
     
     private func loadContents(){
+        
+        guard isDataLoadingEnabled else { return }
+        guard !isNextPageAvailable else { return }
+        guard !isDataLoading else { return }
+        isDataLoading = true
+        
         Task{
-            await FlickrApiCaller.shared.getDummyFeed(for: 1) { [weak self] result in
-                guard let self else {return}
+            await FlickrApi.shared.getFeed(for: nextPageNumber) { [weak self] result in
+                guard let self else {
+                    self?.isDataLoading = false
+                    return
+                }
+                
                 switch result{
                 case .success(let items):
-                    data.append(contentsOf: items)
+                    isNextPageAvailable =  items.count < FlickrApi.perPageItemCount
+                    data.append(contentsOf: items.map{FlickrMediaItemViewModel(feedItem: $0)})
                     DispatchQueue.main.async {
-                        print(self.data.map(\.media.urlString))
                         self.collectionView.reloadData()
+                        self.collectionView.contentOffset = self.scrollOffsetBeforeLoading
                     }
                 case .failure(let error):
                     print(error)
                 }
+                nextPageNumber += 1
+                isDataLoading = false
             }
         }
     }
@@ -90,9 +115,30 @@ class HomeViewController: UIViewController{
 extension HomeViewController: UserPreferenceDelegate{
     
     func onDismiss() {
+        isDataLoadingEnabled = true
         loadContents()
     }
     
+}
+
+extension HomeViewController: CHTCollectionViewDelegateWaterfallLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let w = data[indexPath.row].width
+        let h = data[indexPath.row].height
+        return CGSize(width: w, height: h)
+    }
+    
+    
+}
+
+extension HomeViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        if contentOffsetY >= (scrollView.contentSize.height - scrollView.bounds.height) - 20 /* Needed offset */ {
+            scrollOffsetBeforeLoading = scrollView.contentOffset
+            loadContents()
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -115,7 +161,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
-        if let url = URL(string: data[indexPath.row].media.urlString){
+        if let url = URL(string: data[indexPath.row].urlString){
             cell.configure(with: url)
         }
     
@@ -123,6 +169,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     // MARK: UICollectionViewDelegate
+    
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
