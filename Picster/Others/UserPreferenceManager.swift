@@ -7,29 +7,23 @@
 
 import Foundation
 
-class Constants{
-    static let key_PreferredTopics = "PreferredTopics"
-}
 
 class UserPreferenceManager{
-    
-    static let shared = UserPreferenceManager()
-    
     
     private init(){}
     
     
-    public func getUserPreferredTopics() -> [String] {
+    public static func getUserPreferredTopics() -> [String] {
         return UserDefaults.standard.object(forKey: Constants.key_PreferredTopics) as? [String] ?? []
     }
     
     
-    public func setUserPreferredTopics(topics: [String]){
+    public static func setUserPreferredTopics(topics: [String]){
         UserDefaults.standard.setValue(topics, forKey: Constants.key_PreferredTopics)
     }
     
     
-    public func isTopicPreferenceExist() -> Bool {
+    public static func isTopicPreferenceExist() -> Bool {
         UserDefaults.standard.object(forKey: Constants.key_PreferredTopics) != nil
     }
     

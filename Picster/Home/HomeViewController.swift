@@ -17,7 +17,7 @@ class HomeViewController: UIViewController{
     
     
     private func configure(){
-        if UserPreferenceManager.shared.isTopicPreferenceExist(){
+        if UserPreferenceManager.isTopicPreferenceExist(){
             loadContents()
         }
         else{
@@ -29,6 +29,18 @@ class HomeViewController: UIViewController{
     
     private func loadContents(){
         print("load contents here")
+        Task{
+            await FlickrApiCaller.shared.getFeed(for: 1) { result in
+                switch result{
+                case .success(let items):
+                    items.forEach{
+                        print($0.title)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 

@@ -51,7 +51,7 @@ class UserPreferenceViewController: UIViewController {
         
         buttonSave.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
-        UserPreferenceManager.shared.getUserPreferredTopics().forEach{
+        UserPreferenceManager.getUserPreferredTopics().forEach{
             selectedTopics.insert($0)
         }
         
@@ -194,7 +194,7 @@ class UserPreferenceViewController: UIViewController {
     
     
     @objc private func saveButtonTapped(){
-        UserPreferenceManager.shared.setUserPreferredTopics(topics: selectedTopics.sorted())
+        UserPreferenceManager.setUserPreferredTopics(topics: selectedTopics.sorted())
         dismiss(animated: true)
     }
     
