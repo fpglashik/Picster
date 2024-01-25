@@ -20,6 +20,8 @@ class HomeViewController: UIViewController{
     private var nextPageNumber = 1
     private var scrollOffsetBeforeLoading = CGPoint(x: 0, y: 0)
     
+    private enum DataSourceSectionType: Hashable { case onlyOne }
+    private var dataSource: UICollectionViewDiffableDataSource<DataSourceSectionType, FlickrMediaItemViewModel>!
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
@@ -48,28 +50,44 @@ class HomeViewController: UIViewController{
         configureCollectionView()
     }
     
-    
     private func configureCollectionView(){
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: view.bounds.width / 3 - 10, height: 200)
-        
+
         let waterfallLayout = CHTCollectionViewWaterfallLayout()
         waterfallLayout.columnCount = 3
         waterfallLayout.itemRenderDirection = .leftToRight
         
-        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(FlickrItemCollectionCell.self, forCellWithReuseIdentifier: FlickrItemCollectionCell.reuseIdentifier)
-        
-        
         collectionView.delegate = self
-        collectionView.dataSource = self
+        
+        dataSource = UICollectionViewDiffableDataSource<DataSourceSectionType, FlickrMediaItemViewModel>(collectionView: collectionView){[weak self] collectionView, indexPath, itemIdentifier in
+            
+            print("hello")
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrItemCollectionCell.reuseIdentifier, for: indexPath) as? FlickrItemCollectionCell, let self else{
+                return UICollectionViewCell()
+            }
+            
+            if let url = URL(string: data[indexPath.row].urlString){
+                cell.configure(with: url)
+            }
+        
+            return cell
+        }
+        
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         view.backgroundColor = .brown
     }
+    
+    private func updateData(){
+        var snapshot = NSDiffableDataSourceSnapshot<DataSourceSectionType, FlickrMediaItemViewModel>()
+        snapshot.appendSections([.onlyOne])
+        snapshot.appendItems(data, toSection: .onlyOne)
+
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
     
     private func loadContents(){
         
@@ -90,8 +108,7 @@ class HomeViewController: UIViewController{
                     isNextPageAvailable =  items.count < FlickrApi.perPageItemCount
                     data.append(contentsOf: items.map{FlickrMediaItemViewModel(feedItem: $0)})
                     DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                        self.collectionView.contentOffset = self.scrollOffsetBeforeLoading
+                        self.updateData()
                     }
                 case .failure(let error):
                     print(error)
@@ -141,33 +158,8 @@ extension HomeViewController: UIScrollViewDelegate{
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension HomeViewController: UICollectionViewDelegate{
     
-    // MARK: UICollectionViewDataSource
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return data.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrItemCollectionCell.reuseIdentifier, for: indexPath) as? FlickrItemCollectionCell else{
-            return UICollectionViewCell()
-        }
-        
-        if let url = URL(string: data[indexPath.row].urlString){
-            cell.configure(with: url)
-        }
-    
-        return cell
-    }
-
     // MARK: UICollectionViewDelegate
     
 

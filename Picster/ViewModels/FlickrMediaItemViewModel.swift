@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct FlickrMediaItemViewModel{
+struct FlickrMediaItemViewModel: Identifiable, Hashable{
     
+    let id: String = UUID().uuidString
     let title: String
     let urlString: String
     let width: Int
