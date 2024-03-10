@@ -48,26 +48,27 @@ struct FlickrApi{
                                 .appending(feedTagComponent)
                                 .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        let networkResult = await NetworkManager.fetchData(from: urlString)
         
-        switch networkResult{
-            case .success(let data):
-                if let feed = DataCoders.decode(data: data, FlickrFeed.self){
-                    /*feed.items.forEach{
-                        print("title:\($0.title)")
-                        print("url:\($0.url)")
-                        print("murl:\($0.media.urlString)")
-                        print("desc:\($0.description)")
-                        print("\n")
-                        print("\n")
-                    }*/
-                    completion(.success(feed.items))
-                }
-                else{
-                    completion(.failure(.fail))
-                }
-            case .failure(_):
+        do{
+            let networkResultData = try await NetworkManager.fetchData(from: urlString)
+            
+            if let feed = DataCoders.decode(data: networkResultData, FlickrFeed.self){
+                /*feed.items.forEach{
+                    print("title:\($0.title)")
+                    print("url:\($0.url)")
+                    print("murl:\($0.media.urlString)")
+                    print("desc:\($0.description)")
+                    print("\n")
+                    print("\n")
+                }*/
+                completion(.success(feed.items))
+            }
+            else{
                 completion(.failure(.fail))
+            }
+        }
+        catch{
+            completion(.failure(.fail))
         }
         
     }

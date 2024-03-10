@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1196F12B7BA40A00FA99B6 /* WhiteboxCartoonization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1A1196F02B7BA40A00FA99B6 /* WhiteboxCartoonization.mlmodel */; };
+		1A1196F32B7BA70300FA99B6 /* AnimeGanPaprika.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1A1196F22B7BA70300FA99B6 /* AnimeGanPaprika.mlmodel */; };
 		1A7D5B942B6033CA0037C252 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D5B932B6033CA0037C252 /* CHTCollectionViewWaterfallLayout */; };
 		1A7D5B962B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 1A7D5B952B6033CA0037C252 /* CHTCollectionViewWaterfallLayoutObjC */; };
 		1A7EE3092B5AAE3400CCACC3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */; };
@@ -20,6 +22,10 @@
 		1AD79D392B620576001A9B9A /* DataCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D382B620576001A9B9A /* DataCoder.swift */; };
 		1AD79D3B2B620F3A001A9B9A /* FlickrModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D3A2B620F3A001A9B9A /* FlickrModels.swift */; };
 		1AD79D3E2B62165F001A9B9A /* FlickrItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */; };
+		1ADA03222B7A893A004027E1 /* Photo2Cartoon.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA03202B7A8937004027E1 /* Photo2Cartoon.mlmodel */; };
+		1ADA03232B7A893A004027E1 /* FaceParsing.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA03212B7A893A004027E1 /* FaceParsing.mlmodel */; };
+		1ADA03252B7A8D41004027E1 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA03242B7A8D41004027E1 /* UIImage+Ext.swift */; };
+		1ADC66662B7B9D46007500BA /* FacialCartoonization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC66652B7B9D46007500BA /* FacialCartoonization.mlmodel */; };
 		1ADEE3EB2B559B83009B9E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */; };
 		1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */; };
 		1ADEE3F42B559B86009B9E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADEE3F32B559B86009B9E6A /* Assets.xcassets */; };
@@ -28,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1196F02B7BA40A00FA99B6 /* WhiteboxCartoonization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WhiteboxCartoonization.mlmodel; sourceTree = "<group>"; };
+		1A1196F22B7BA70300FA99B6 /* AnimeGanPaprika.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AnimeGanPaprika.mlmodel; sourceTree = "<group>"; };
 		1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1A7EE30A2B5AAEEF00CCACC3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1A7EE30B2B5AAEEF00CCACC3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +47,10 @@
 		1AD79D382B620576001A9B9A /* DataCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoder.swift; sourceTree = "<group>"; };
 		1AD79D3A2B620F3A001A9B9A /* FlickrModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrModels.swift; sourceTree = "<group>"; };
 		1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrItemCollectionCell.swift; sourceTree = "<group>"; };
+		1ADA03202B7A8937004027E1 /* Photo2Cartoon.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Photo2Cartoon.mlmodel; sourceTree = "<group>"; };
+		1ADA03212B7A893A004027E1 /* FaceParsing.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceParsing.mlmodel; sourceTree = "<group>"; };
+		1ADA03242B7A8D41004027E1 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		1ADC66652B7B9D46007500BA /* FacialCartoonization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FacialCartoonization.mlmodel; sourceTree = "<group>"; };
 		1ADEE3E72B559B83009B9E6A /* Picster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +102,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1ADA031F2B7A891D004027E1 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				1A1196F22B7BA70300FA99B6 /* AnimeGanPaprika.mlmodel */,
+				1ADA03212B7A893A004027E1 /* FaceParsing.mlmodel */,
+				1ADA03202B7A8937004027E1 /* Photo2Cartoon.mlmodel */,
+				1ADC66652B7B9D46007500BA /* FacialCartoonization.mlmodel */,
+				1A1196F02B7BA40A00FA99B6 /* WhiteboxCartoonization.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
+		1ADA03262B7A8D4E004027E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1ADA03242B7A8D41004027E1 /* UIImage+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1ADEE3DE2B559B83009B9E6A = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +141,8 @@
 		1ADEE3E92B559B83009B9E6A /* Picster */ = {
 			isa = PBXGroup;
 			children = (
+				1ADA03262B7A8D4E004027E1 /* Extensions */,
+				1ADA031F2B7A891D004027E1 /* MLModels */,
 				1AEA36F52B62BFF100FB2774 /* ViewModels */,
 				1AD79D3C2B6212BB001A9B9A /* Models */,
 				1AD79D2F2B61FC39001A9B9A /* Others */,
@@ -117,10 +151,10 @@
 				1A7EE3082B5AAE3400CCACC3 /* TabBarViewController.swift */,
 				1ADEE3EA2B559B83009B9E6A /* AppDelegate.swift */,
 				1ADEE3EC2B559B83009B9E6A /* SceneDelegate.swift */,
+				1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */,
 				1ADEE3F32B559B86009B9E6A /* Assets.xcassets */,
 				1ADEE3F52B559B86009B9E6A /* LaunchScreen.storyboard */,
 				1ADEE3F82B559B86009B9E6A /* Info.plist */,
-				1AD79D3D2B62165F001A9B9A /* FlickrItemCollectionCell.swift */,
 			);
 			path = Picster;
 			sourceTree = "<group>";
@@ -212,6 +246,9 @@
 			files = (
 				1AD79D3E2B62165F001A9B9A /* FlickrItemCollectionCell.swift in Sources */,
 				1A7EE3092B5AAE3400CCACC3 /* TabBarViewController.swift in Sources */,
+				1A1196F12B7BA40A00FA99B6 /* WhiteboxCartoonization.mlmodel in Sources */,
+				1ADA03252B7A8D41004027E1 /* UIImage+Ext.swift in Sources */,
+				1ADA03222B7A893A004027E1 /* Photo2Cartoon.mlmodel in Sources */,
 				1AD79D392B620576001A9B9A /* DataCoder.swift in Sources */,
 				1AD79D3B2B620F3A001A9B9A /* FlickrModels.swift in Sources */,
 				1A7EE30C2B5AAEEF00CCACC3 /* ProfileViewController.swift in Sources */,
@@ -220,9 +257,12 @@
 				1ADEE3EB2B559B83009B9E6A /* AppDelegate.swift in Sources */,
 				1AD79D352B61FFC2001A9B9A /* Constants.swift in Sources */,
 				1AD79D372B620011001A9B9A /* FlickrApi.swift in Sources */,
+				1ADC66662B7B9D46007500BA /* FacialCartoonization.mlmodel in Sources */,
 				1AD79D312B61FC54001A9B9A /* NetworkManager.swift in Sources */,
+				1A1196F32B7BA70300FA99B6 /* AnimeGanPaprika.mlmodel in Sources */,
 				1ADEE3ED2B559B83009B9E6A /* SceneDelegate.swift in Sources */,
 				1A7EE30D2B5AAEEF00CCACC3 /* HomeViewController.swift in Sources */,
+				1ADA03232B7A893A004027E1 /* FaceParsing.mlmodel in Sources */,
 				1A7EE3112B5AB23A00CCACC3 /* UserPreferenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

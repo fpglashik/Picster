@@ -63,7 +63,6 @@ class HomeViewController: UIViewController{
         
         dataSource = UICollectionViewDiffableDataSource<DataSourceSectionType, FlickrMediaItemViewModel>(collectionView: collectionView){[weak self] collectionView, indexPath, itemIdentifier in
             
-            print("hello")
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrItemCollectionCell.reuseIdentifier, for: indexPath) as? FlickrItemCollectionCell, let self else{
                 return UICollectionViewCell()
             }

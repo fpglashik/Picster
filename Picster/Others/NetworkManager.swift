@@ -20,17 +20,16 @@ enum NetworkError: String, Error, LocalizedError{
 }
 
 enum NetworkManager{
-    static func fetchData(from urlString: String?) async -> Result<Data, NetworkError> {
-        guard let urlString, let url = URL(string: urlString) else{
-            return .failure(.invalidUrl)
+
+    static func fetchData(from urlString: String?) async throws -> Data {
+        guard let urlString,
+              let urlQueryAllowedString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
+              let url = URL(string: urlQueryAllowedString) else {
+            throw NetworkError.invalidUrl
         }
         
-        do{
-            let response = try await URLSession.shared.data(for:  URLRequest(url: url))
-            return .success(response.0)
-        }
-        catch{
-            return .failure(.failedToFetchData)
-        }
+        let response = try await URLSession.shared.data(for:  URLRequest(url: url))
+        return response.0
+        
     }
 }
